@@ -1,0 +1,69 @@
+## Type d'entrée que le Chatbot reconnais
+## Dans le fichier nlu.md on liste ce que l'utilisateur peut écrire dans chaque intent
+intents:
+  - greet: {triggers: action_greet}
+  - bye
+  - thank
+  - happy
+  - faq
+  - out_of_scope
+
+## Utile pour le formulaire
+## Cela correspond aux différents champs qu'il faut sauvegarder
+entities:
+  - name
+  - email
+  - phone
+  - message
+
+## Utile pour le formulaire
+## On ajoute des informations supplémentaire pour les champs
+slots:
+  name:
+    type: unfeaturized
+    auto_fill: false
+  email:
+    type: unfeaturized
+    auto_fill: false
+  phone:
+    type: unfeaturized
+    auto_fill: false*
+  message:
+    type: unfeaturized
+    auto_fill: false
+
+## Liste des réponses que le Chatbot connait
+responses:
+  utter_noworries:
+    - text: Mais de rien !
+  utter_greet:
+    - text: Bien le bonjour, comment allez vous?
+  utter_happy:
+    - text: Merveilleux, continuez comme ça !
+  utter_bye:
+    - text: A bientôt
+  utter_ask_name:
+    - text: Quel est votre nom ?
+  💸utter_ask_email:
+    - text: Quel est votre email ?
+  utter_ask_phone:
+    - text: Quel est votre numéro de téléphone ?
+  utter_ask_massge:
+    - text: Veuillez saisir votre message
+  utter_submit:
+    - text: Votre message a été enregistré
+  utter_wrong_phone:
+    - text: Veuillez saisir un numéro de téléphone valide
+  utter_slots_values:
+    - text: "Je vais envoyer un message avec les paramètres suivants:\n
+               - Nom: {name}\n
+               - Email: {email}\n
+               - Téléphone: {phone}\n
+               - Message: {message}"
+
+forms:
+  - contact_form
+
+actions:
+  - respond_faq
+  - action_greet
